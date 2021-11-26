@@ -12,26 +12,34 @@
 
 #include <unistd.h>
 
-void	ft_print_int(void)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_print_comb(void)
 {
 	char	fdigit;
 	char	sdigit;
 	char	ldigit;
 
-	fdigit = 48;
-	while (fdigit <= 55)
+	fdigit = '0';
+	while (fdigit <= '7')
 	{
 		sdigit = fdigit + 1;
-		while (sdigit <= 56)
+		while (sdigit <= '8')
 		{
 			ldigit = sdigit + 1;
-			while (ldigit <= 57)
+			while (ldigit <= '9')
 			{
-				write(1, &fdigit, 1);
-				write(1, &sdigit, 1);
-				write(1, &ldigit, 1);
-				if (!(fdigit == 55 && sdigit == 56 && ldigit == 57))
-					write(1, ", ", 2);
+				ft_putchar(fdigit);
+				ft_putchar(sdigit);
+				ft_putchar(ldigit);
+				if (!(fdigit == '7' && sdigit == '8' && ldigit == '9'))
+				{
+					ft_putchar(',');
+					ft_putchar(' ');
+				}
 				ldigit++;
 			}
 			sdigit++;

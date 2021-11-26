@@ -12,14 +12,19 @@
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+void ft_putchar(char c)
 {
-	char	counter;
+	write(1, &c, 1);
+}
 
-	counter = 48;
-	while (counter <= 57)
+void ft_print_numbers(void)
+{
+	char	num;
+
+	num = '0';
+	while (num <= '9')
 	{
-		write(1, &counter, 1);
-		counter++;
+		ft_putchar(num);
+		num++;
 	}
 }
